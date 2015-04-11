@@ -34,8 +34,14 @@ EOF
 
 
 WORK_PATH=$(pwd)
-mkdir -p shiva
 INSTALL_PATH=$WORK_PATH/shiva
+
+if [ -d "shiva" ];
+then
+	echo "Configuration directory 'shiva' already present! Removing & recreating it to install a fresh instance of it."
+	rm -rf shiva
+fi
+mkdir shiva
 
 prerequisites () {
     printf "\n\n[*] Checking for the prerequisites in system.\n"
@@ -213,7 +219,7 @@ installation () {
 }
 
 banner
-printf "If anything goes wrong, delete newly created directory 'shiva' and start again\n"
+printf "If anything goes wrong, re-execute this install script to install a fresh setup.\n"
 read -p "Press enter to continue installation...";
 if [ "$UID" == "0" ] || [ "$EUID" == "0" ]
 then
