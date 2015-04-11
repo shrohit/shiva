@@ -176,16 +176,13 @@ analyzer () {
 create_dirs () {
     printf "\n[*] Creating necessary folders and updating configuration files.....\n"
 
-    mkdir $INSTALL_PATH/queue 
-    mkdir $INSTALL_PATH/queue/new
+    mkdir -p $INSTALL_PATH/queue/new
     mkdir $INSTALL_PATH/queue/cur
     mkdir $INSTALL_PATH/queue/tmp
     mkdir $INSTALL_PATH/distorted
-    mkdir $INSTALL_PATH/attachments
-    mkdir $INSTALL_PATH/attachments/inlines
+    mkdir -p $INSTALL_PATH/attachments/inlines
     mkdir $INSTALL_PATH/attachments/hpfeedattach
-    mkdir $INSTALL_PATH/rawspams
-    mkdir $INSTALL_PATH/rawspams/hpfeedspam
+    mkdir -p $INSTALL_PATH/rawspams/hpfeedspam
     
     ESCAPED_PATH=$(echo $INSTALL_PATH | sed -s 's/\//\\\//g')
     
